@@ -1,0 +1,21 @@
+@model VercelLatestDeploymentViewModel
+
+<div class="vercel-latest-deployment-status">
+    <span>Deployment Status: </span>
+    @if (!Model.InitializationStatus.ConfiguredApiToken)
+    {
+        <span>Api Token not configured.</span>
+    }
+    else if (Model.IsWaitingForDeployment)
+    {
+        <span>Waiting for deployment.</span>
+    }
+    else if (Model.LatestDeployment == null)
+    {
+        <span>Could not find latest deployment.</span>
+    }
+    else
+    {
+        <span>@Model.LatestDeployment.State</span>
+    }
+</div>
