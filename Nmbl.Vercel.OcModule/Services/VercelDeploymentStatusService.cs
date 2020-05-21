@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 using LazyCache;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
-using Nmbl.OcModules.Vercel.Models;
+using Nmbl.Vercel.OcModule.Models;
 using Nmbl.Vercel.Models;
 using Nmbl.Vercel.Services;
 using OrchardCore.Environment.Cache;
 
-namespace Nmbl.OcModules.Vercel.Services
+namespace Nmbl.Vercel.OcModule.Services
 {
     public class VercelDeploymentStatusService
     {

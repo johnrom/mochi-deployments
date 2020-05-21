@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
-using Nmbl.OcModules.Vercel.Services;
-using Nmbl.OcModules.Vercel.ViewModels;
+using Nmbl.Vercel.OcModule.Services;
+using Nmbl.Vercel.OcModule.ViewModels;
 using Nmbl.Vercel.Services;
 
-namespace Nmbl.OcModules.Vercel.TagHelpers
+namespace Nmbl.Vercel.OcModule.TagHelpers
 {
     [HtmlTargetElement("vercel-latest-deployment", TagStructure = TagStructure.WithoutEndTag)]
     public class VercelLatestDeploymentTagHelper : TagHelper

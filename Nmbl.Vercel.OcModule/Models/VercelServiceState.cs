@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nmbl.OcModules.Vercel.Models
+namespace Nmbl.Vercel.OcModule.Models
 {
     public class VercelServiceState
     {

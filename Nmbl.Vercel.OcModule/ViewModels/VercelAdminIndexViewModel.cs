@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nmbl.OcModules.Vercel.ViewModels
+namespace Nmbl.Vercel.OcModule.ViewModels
 {
     public class VercelAdminIndexViewModel
     {

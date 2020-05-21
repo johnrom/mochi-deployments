@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OrchardCore.Security.Permissions;
 
-namespace Nmbl.OcModules.Vercel
+namespace Nmbl.Vercel.OcModule
 {
     public class Permissions : IPermissionProvider
     {

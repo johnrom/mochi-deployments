@@ -4,7 +4,7 @@ using OrchardCore.Modules;
 using System;
 using System.Threading.Tasks;
 
-namespace Nmbl.OcModules.Vercel.Extensions
+namespace Nmbl.Vercel.OcModule.Extensions
 {
     public static class OrchardExtensions
     {

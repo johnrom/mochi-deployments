@@ -1,6 +1,6 @@
 using Nmbl.Vercel.Models;
 
-namespace Nmbl.OcModules.Vercel.ViewModels
+namespace Nmbl.Vercel.OcModule.ViewModels
 {
     public class VercelLatestDeploymentViewModel
     {

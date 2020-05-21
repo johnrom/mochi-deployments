@@ -8,7 +8,7 @@ using OrchardCore.DisplayManagement.Layout;
 using OrchardCore.Admin;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Nmbl.OcModules.Vercel.Filters
+namespace Nmbl.Vercel.OcModule.Filters
 {
     public class VercelNavBarFilter : IAsyncResultFilter
     {

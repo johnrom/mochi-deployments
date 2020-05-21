@@ -1,10 +1,10 @@
 using OrchardCore.Modules.Manifest;
 
 [assembly: Module(
-    Name = "Nmbl.OcModules.Vercel",
+    Name = "Nmbl.Vercel.OcModule",
     Author = "John Rom, Nimblelight",
     Website = "https://nimblelight.com",
     Version = "0.0.1",
-    Description = "Nmbl.OcModules.Vercel",
-    Category = "Content Management"
+    Description = "Nmbl.Vercel.OcModule",
+    Category = "Deployment"
 )]

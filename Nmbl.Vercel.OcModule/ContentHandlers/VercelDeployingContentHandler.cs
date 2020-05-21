@@ -2,11 +2,11 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Nmbl.OcModules.Vercel.Models;
-using Nmbl.OcModules.Vercel.Services;
+using Nmbl.Vercel.OcModule.Models;
+using Nmbl.Vercel.OcModule.Services;
 using OrchardCore.ContentManagement.Handlers;
 
-namespace Nmbl.OcModules.Vercel.ContentHandlers
+namespace Nmbl.Vercel.OcModule.ContentHandlers
 {
     public class DeployingContentHandler : ContentHandlerBase
     {

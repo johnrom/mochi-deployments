@@ -1,4 +1,4 @@
-namespace Nmbl.OcModules.Vercel.Models
+namespace Nmbl.Vercel.OcModule.Models
 {
     public class VercelDeploymentOptions
     {

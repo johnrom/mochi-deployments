@@ -2,13 +2,13 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Nmbl.OcModules.Vercel.Models;
-using Nmbl.OcModules.Vercel.Services;
-using Nmbl.OcModules.Vercel.ViewModels;
+using Nmbl.Vercel.OcModule.Models;
+using Nmbl.Vercel.OcModule.Services;
+using Nmbl.Vercel.OcModule.ViewModels;
 using Nmbl.Vercel.Services;
 using OrchardCore.Admin;
 
-namespace Nmbl.OcModules.Vercel.Controllers
+namespace Nmbl.Vercel.OcModule.Controllers
 {
     [Admin]
     public class VercelController : Controller
