@@ -4,10 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <PackageId>Nmbl.Vercel.OcModule</PackageId>
-    <Version>0.0.1-alpha1</Version>
+    <Version>0.0.1-alpha2</Version>
     <Authors>John Rom</Authors>
     <Company>Nimblelight</Company>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="LazyCache.AspNetCore" Version="2.0.4" />
-    <PackageReference Include="Nmbl.Vercel" Version="0.0.1-alpha1" />
+    <PackageReference Include="Nmbl.Vercel" Version="0.0.1-alpha2" />
     <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc1-12542" />
     <PackageReference Include="OrchardCore.AdminMenu.Abstractions" Version="1.0.0-rc1-12542" />
     <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc1-12542" />
