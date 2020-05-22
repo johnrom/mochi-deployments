@@ -5,9 +5,7 @@
 | Status | `alpha` |
 | Currently supports | `OrchardCore@1.0.0-rc1-12542` |
 
-Proof of concept: Vercel deployments for DotNet Core. Consists of a base Library and an Orchard Core implementation.
-
-Use to create new `GatsbyJS` or other static site generator builds which query the CMS each time the CMS content is published.
+Vercel deployments for DotNet Core. Consists of a base Library and an Orchard Core implementation. Use to create new `GatsbyJS` or other static site generator builds which query the CMS each time the CMS content is published.
 
 ## `Nmbl.Vercel.OcModule`
 
