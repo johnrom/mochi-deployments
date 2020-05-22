@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nmbl.Vercel.Models
+namespace Nmbl.Deployments.Vercel.Models
 {
     public class VercelOptions
     {
@@ -10,8 +10,5 @@ namespace Nmbl.Vercel.Models
         public string TeamId { get; set; }
         public string DeployHook { get; set; }
         public string ApiToken { get; set; }
-        public int HttpPolicyRetryCount { get; set; } = 3;
-        public int CircuitBreakerPolicyCount { get; set; } = 3;
-        public int CircuitBreakerPolicyIntervalInSeconds { get; set; } = 60;
     }
 }

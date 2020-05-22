@@ -7,13 +7,13 @@
 
 Vercel deployments for DotNet Core. Consists of a base Library and an Orchard Core implementation. Use to create new `GatsbyJS` or other static site generator builds which query the CMS each time the CMS content is published.
 
-## `Nmbl.Vercel.OcModule`
+## `Nmbl.Deployments.Vercel.OcModule`
 
-Orchard Core module implementation of Nmbl.Vercel.
+Orchard Core module implementation of Nmbl.Deployments.Vercel.
 
 ### Getting Started
 
-First, make sure you're using the version of Orchard Core listed above, and add `Nmbl.Vercel.OcModule` to your project.
+First, make sure you're using the version of Orchard Core listed above, and add `Nmbl.Deployments.Vercel.OcModule` to your project.
 
 ```
 dotnet add nmbl-vercel-dotnet@0.0.1-*
@@ -48,11 +48,11 @@ Then, add some Vercel configuration to your appSettings.
 
 See [Vercel Options](#NmblVercelVercelOptions).
 
-## `Nmbl.Vercel`
+## `Nmbl.Deployments.Vercel`
 
 Base library for implementing Vercel Deployments
 
-### `Nmbl.Vercel.VercelOptions`
+### `Nmbl.Deployments.Vercel.VercelOptions`
 
 The default configuration uses some retry and circuit breaker conditions.
 

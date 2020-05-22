@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Nmbl.Vercel.Extensions;
+using Nmbl.Deployments.Vercel.Extensions;
 
-namespace Nmbl.Vercel.Models
+namespace Nmbl.Deployments.Vercel.Models
 {
     public class VercelDeployment
     {

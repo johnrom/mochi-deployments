@@ -1,7 +1,7 @@
 
 using System;
 
-namespace Nmbl.Vercel.Extensions
+namespace Nmbl.Deployments.Vercel.Extensions
 {
     public static class DateTimeExtensions
     {
