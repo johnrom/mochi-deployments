@@ -9,7 +9,7 @@ Proof of concept: Vercel deployments for DotNet Core. Consists of a base Library
 
 Orchard Core module implementation of Nmbl.Vercel.
 
-### Setting up `Nmbl.Vercel.OcModule`
+### Getting Started
 
 First, make sure you're using the version of Orchard Core listed above, and add `Nmbl.Vercel.OcModule` to your project.
 
@@ -44,7 +44,7 @@ Then, add some Vercel configuration to your appSettings.
 
 ### `VercelOptions`
 
-See [Vercel Options](#Nmbl-Vercel-VercelOptions).
+See [Vercel Options](#NmblVercelVercelOptions).
 
 ## `Nmbl.Vercel`
 
