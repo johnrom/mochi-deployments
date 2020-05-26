@@ -2,7 +2,7 @@
 @inject OrchardCore.IOrchardHelper orchard
 
 <h1>Deployments</h1>
-<p>@Html.ActionLink("Deploy Now", nameof(Nmbl.Deployments.Vercel.OcModule.Controllers.VercelDeploymentsController.Deploy))</p>
+<p>@Html.ActionLink("Deploy Now", nameof(Nmbl.Deployments.OrchardCore.Vercel.Controllers.VercelDeploymentsController.Deploy))</p>
 
 @if (@Model.Deployments.Count() > 0) {
     <ul class="list-group">

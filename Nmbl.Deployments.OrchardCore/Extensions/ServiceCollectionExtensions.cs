@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Nmbl.Deployments.Core.Extensions;
 using Nmbl.Deployments.Core.Models;
 using Nmbl.Deployments.OrchardCore.Models;
-using Nmbl.Deployments.OrchardCore.Services;
 
 namespace Nmbl.Deployments.OrchardCore.Extensions
 {
@@ -19,7 +18,6 @@ namespace Nmbl.Deployments.OrchardCore.Extensions
 
             services.AddLazyCache();
             services.AddSingleton<DeploymentStatus>();
-            services.AddScoped<DeploymentStatusService>();
         }
     }
 }

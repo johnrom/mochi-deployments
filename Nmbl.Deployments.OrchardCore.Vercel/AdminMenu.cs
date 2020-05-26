@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
 
-namespace Nmbl.Deployments.Vercel.OcModule
+namespace Nmbl.Deployments.OrchardCore.Vercel
 {
     public class AdminMenu : INavigationProvider
     {
@@ -25,7 +25,7 @@ namespace Nmbl.Deployments.Vercel.OcModule
                 .Add(T["Configuration"], configuration => configuration
                     .Add(T["Vercel"], "10", tasks => tasks
                         .Add(T["Deployments"], "10", navItemBuilder => navItemBuilder
-                            .Action("Index", "Vercel", new { area = "Nmbl.Deployments.Vercel.OcModule" })
+                            .Action("Index", "Vercel", new { area = "Nmbl.Deployments.OrchardCore.Vercel" })
                             .Permission(Permissions.ManageVercelSettings)
                             .LocalNav()
                         )

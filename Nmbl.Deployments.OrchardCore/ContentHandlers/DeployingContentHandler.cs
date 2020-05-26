@@ -2,24 +2,24 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Nmbl.Deployments.Core.Services;
 using Nmbl.Deployments.OrchardCore.Models;
-using Nmbl.Deployments.OrchardCore.Services;
 using OrchardCore.ContentManagement.Handlers;
 
 namespace Nmbl.Deployments.OrchardCore.ContentHandlers
 {
     public class DeployingContentHandler : ContentHandlerBase
     {
-        private readonly DeploymentStatusService _deploymentStatusService;
+        private readonly IDeploymentService _deploymentService;
         private readonly OrchardDeploymentOptions _deploymentOptions;
         private readonly ILogger<DeployingContentHandler> _logger;
 
         public DeployingContentHandler(
-            DeploymentStatusService deploymentStatusService,
+            IDeploymentService deploymentService,
             IOptions<OrchardDeploymentOptions> deploymentOptions,
             ILogger<DeployingContentHandler> logger
         ) {
-            _deploymentStatusService = deploymentStatusService;
+            _deploymentService = deploymentService;
             _deploymentOptions = deploymentOptions.Value;
             _logger = logger;
         }
@@ -29,7 +29,7 @@ namespace Nmbl.Deployments.OrchardCore.ContentHandlers
             {
                 try
                 {
-                    await _deploymentStatusService.SetWaitingForDeploymentAndDeployAsync();
+                    await _deploymentService.DeployAsync();
                 }
                 catch (Exception e)
                 {
@@ -52,7 +52,7 @@ namespace Nmbl.Deployments.OrchardCore.ContentHandlers
             ) {
                 try
                 {
-                    await _deploymentStatusService.SetWaitingForDeploymentAndDeployAsync();
+                    await _deploymentService.DeployAsync();
                 }
                 catch (Exception e)
                 {

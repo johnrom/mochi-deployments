@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <PackageId>Nmbl.Deployments.Vercel.OcModule</PackageId>
+    <PackageId>Nmbl.Deployments.OrchardCore.Vercel</PackageId>
     <Version>0.0.1-alpha1</Version>
     <Authors>John Rom</Authors>
     <Company>Nimblelight</Company>

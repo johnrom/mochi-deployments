@@ -8,11 +8,11 @@ using Nmbl.Deployments.Vercel.Extensions;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.Security.Permissions;
-using Nmbl.Deployments.Vercel.OcModule.Filters;
-using Nmbl.Deployments.Vercel.OcModule.TagHelpers;
+using Nmbl.Deployments.OrchardCore.Vercel.Filters;
+using Nmbl.Deployments.OrchardCore.Vercel.TagHelpers;
 using Nmbl.Deployments.Core.Models;
 
-namespace Nmbl.Deployments.Vercel.OcModule
+namespace Nmbl.Deployments.OrchardCore.Vercel
 {
     public class Startup : StartupBase
     {

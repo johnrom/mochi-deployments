@@ -1,7 +1,7 @@
 using Nmbl.Deployments.Core.Models;
 using Nmbl.Deployments.Vercel.Models;
 
-namespace Nmbl.Deployments.Vercel.OcModule.ViewModels
+namespace Nmbl.Deployments.OrchardCore.Vercel.ViewModels
 {
     public class VercelLatestDeploymentViewModel
     {

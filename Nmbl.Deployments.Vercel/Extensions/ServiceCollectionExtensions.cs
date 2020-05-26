@@ -6,20 +6,23 @@ using System;
 using Nmbl.Deployments.Vercel.Models;
 using Nmbl.Deployments.Core.Services;
 using Nmbl.Deployments.Core;
+using Nmbl.Deployments.Vercel.Services;
 
 namespace Nmbl.Deployments.Vercel.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddVercel(this IServiceCollection services, Action<DeploymentOptions> deploymentSetup = null, Action<VercelOptions> vercelSetup = null)
+        public static void AddVercelCore(this IServiceCollection services, Action<VercelOptions> vercelSetup = null, Action<DeploymentOptions> deploymentSetup = null)
         {
             if (vercelSetup != null)
             {
                 services.Configure(vercelSetup);
             }
             services.AddDeployments(deploymentSetup);
-
-            services.AddHttpClient<IDeploymentService>()
+        }
+        private static void ConfigureVercelHttpClient(this IHttpClientBuilder clientBuilder)
+        {
+            clientBuilder
                 .ConfigureHttpClient((services, httpClient) =>
                 {
                     var vercelOptions = services.GetService<IOptions<VercelOptions>>()?.Value ?? new VercelOptions();
@@ -43,6 +46,32 @@ namespace Nmbl.Deployments.Vercel.Extensions
 
                     return policies.HttpCircuitBreakerPolicy;
                 });
+        }
+
+        /// <summary>
+        /// Add Vercel Core with default `IDeploymentService`
+        /// </summary>
+        public static void AddVercel(
+            this IServiceCollection services,
+            Action<VercelOptions> vercelSetup = null,
+            Action<DeploymentOptions> deploymentSetup = null
+        ) {
+            services.AddVercelCore(vercelSetup, deploymentSetup);
+            services
+                .AddHttpClient<IDeploymentService, VercelDeploymentService>()
+                .ConfigureVercelHttpClient();
+        }
+        /// <summary>
+        /// Add Vercel without default `IDeploymentService` implementation,
+        /// instead registering `VercelDeploymentService` itself.
+        /// </summary>
+        public static void AddVercelWithoutDefaultService(this IServiceCollection services, Action<VercelOptions> vercelSetup = null, Action<DeploymentOptions> deploymentSetup = null)
+        {
+            services.AddVercelCore(vercelSetup, deploymentSetup);
+
+            services
+                .AddHttpClient<VercelDeploymentService>()
+                .ConfigureVercelHttpClient();
         }
     }
 }

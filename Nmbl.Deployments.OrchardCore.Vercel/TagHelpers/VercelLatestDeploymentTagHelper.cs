@@ -1,17 +1,14 @@
 using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
 using Nmbl.Deployments.Core.Services;
-using Nmbl.Deployments.OrchardCore.Services;
 using Nmbl.Deployments.Vercel.Models;
-using Nmbl.Deployments.Vercel.OcModule.ViewModels;
-using Nmbl.Deployments.Vercel.Services;
+using Nmbl.Deployments.OrchardCore.Vercel.ViewModels;
 
-namespace Nmbl.Deployments.Vercel.OcModule.TagHelpers
+namespace Nmbl.Deployments.OrchardCore.Vercel.TagHelpers
 {
     [HtmlTargetElement("vercel-latest-deployment", TagStructure = TagStructure.WithoutEndTag)]
     public class VercelLatestDeploymentTagHelper : TagHelper
@@ -21,18 +18,18 @@ namespace Nmbl.Deployments.Vercel.OcModule.TagHelpers
         public ViewContext ViewContext { get; set; }
 
         private readonly IHtmlHelper _html;
-        private readonly IDeploymentService _vercelService;
+        private readonly IDeploymentService _deploymentService;
         private readonly DeploymentStatusService _deploymentStatusService;
         private readonly ILogger<VercelLatestDeploymentTagHelper> _logger;
 
         public VercelLatestDeploymentTagHelper(
             IHtmlHelper html,
-            IDeploymentService vercelService,
+            IDeploymentService deploymentService,
             DeploymentStatusService deploymentStatusService,
             ILogger<VercelLatestDeploymentTagHelper> logger
         ) {
             _html = html;
-            _vercelService = vercelService;
+            _deploymentService = deploymentService;
             _deploymentStatusService = deploymentStatusService;
             _logger = logger;
         }
@@ -47,7 +44,7 @@ namespace Nmbl.Deployments.Vercel.OcModule.TagHelpers
 
             var viewModel = new VercelLatestDeploymentViewModel
             {
-                InitializationStatus = _vercelService.GetInitializationStatus(),
+                InitializationStatus = _deploymentService.GetInitializationStatus(),
             };
 
             if (
@@ -55,7 +52,7 @@ namespace Nmbl.Deployments.Vercel.OcModule.TagHelpers
             ) {
                 try
                 {
-                    var latestDeployment = await _deploymentStatusService.GetLatestProductionDeploymentAsync();
+                    var latestDeployment = await _deploymentService.GetLatestProductionDeploymentAsync();
                     viewModel.IsWaitingForDeployment = _deploymentStatusService.IsWaitingForDeployment();
 
                     if (latestDeployment.Source is VercelDeployment vercelDeployment)

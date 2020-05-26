@@ -13,7 +13,7 @@ namespace Nmbl.Deployments.Core.Models
         public int CacheInSeconds { get; set; } = 30;
         /// <summary>
         /// High Priority Cache kicks in when a deployment was recently triggered.
-        /// See <see cref="DeploymentState.IsWaitingForDeployment" />.
+        /// See <see cref="DeploymentStatus.IsWaitingForDeployment" />.
         /// </summary>
         /// <value></value>
         public int HighPriorityCacheInSeconds { get; set; } = 5;
