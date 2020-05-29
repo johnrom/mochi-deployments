@@ -1,22 +1,18 @@
-# `nmbl-vercel-dotnet`
+# `Nmbl.Deployments`
 
 |        |         |
 | ------ | ------- |
 | Status | `alpha` |
 | Currently supports | `OrchardCore@1.0.0-rc1-12542` |
 
-Vercel deployments for DotNet Core. Consists of a base Library and an Orchard Core implementation. Use to create new `GatsbyJS` or other static site generator builds which query the CMS each time the CMS content is published.
+Frontend deployments for DotNet Core. Consists of a base Library, an Orchard Core library, a Vercel library, and an Orchard Core Module to connect them. Use to create new [GatsbyJS](https://www.gatsbyjs.org/) or other static site generator builds which query the CMS each time the CMS content is published.
 
-## `Nmbl.Deployments.OrchardCore.Vercel`
-
-Orchard Core module implementation of Nmbl.Deployments.Vercel.
-
-### Getting Started
+### Getting Started with OrchardCore and Vercel Front-end Deployments
 
 First, make sure you're using the version of Orchard Core listed above, and add `Nmbl.Deployments.OrchardCore.Vercel` to your project.
 
 ```
-dotnet add nmbl-vercel-dotnet@0.0.1-*
+dotnet add Nmbl.Deployments.OrchardCore.Vercel@0.0.1-*
 ```
 
 Then, add some Vercel configuration to your appSettings.
@@ -30,31 +26,41 @@ Then, add some Vercel configuration to your appSettings.
     "ApiToken": "",
     "DeployHook": ""
   },
-  "VercelDeploymentOptions": {
-    "DeployOnPublish": false,
+  "OrchardDeploymentOptions": {
+    "DeployOnPublish": false, // set to true to deploy after Publishing ContentItems.
   }
 }
 ```
 
-### `VercelDeploymentOptions`
+Now you can navigate to `Admin -> Content -> Deployments` and list your latest deployments or click "Deploy Now" to run a new deployment.
 
-`VercelDeploymentOptions` configure some scenarios where publishing the site will automatically run builds in Vercel.
+## `Nmbl.Deployments.Core`
+
+The core deployments library. Has a few options related to [Polly](https://github.com/App-vNext/Polly) policies.
+
+### `DeploymentOptions`
+
+| `HttpPolicyRetryCount` | | 3 | Number of times to retry requests after transient http failures, with exponential back-off. |
+| `CircuitBreakerPolicyCount` | | 3 | Number of times to fail before breaking, for `CircuitBreakerPolicyIntervalInSeconds`. |
+| `CircuitBreakerPolicyIntervalInSeconds` | | 60 | Seconds to break when Circuit Breaker is "open". |
+
+## `Nmbl.Deployments.OrchardCore`
+
+Base OrchardCore library connecting the Core library to Orchard Cache and Publish process.
+
+### `OrchardDeploymentOptions`
+
+`OrchardDeploymentOptions` configures whether publishing the site will automatically run deployments.
 
 | Setting | Required? | Default Value | Description |
 | ------- | --------- | ------------- | ----------- |
 | `DeployOnPublish` | | false | Run a deployment when hitting Publish on any ContentItem |
 
-### `VercelOptions`
-
-See [Vercel Options](#NmblVercelVercelOptions).
-
 ## `Nmbl.Deployments.Vercel`
 
-Base library for implementing Vercel Deployments
+Base Vercel library connecting the Core library to Vercel API endpoints.
 
-### `Nmbl.Deployments.Vercel.VercelOptions`
-
-The default configuration uses some retry and circuit breaker conditions.
+### `VercelOptions`
 
 | Setting | Required? | Default Value | Description |
 | ------- | ----------| ------------- | ----------- |
@@ -62,6 +68,7 @@ The default configuration uses some retry and circuit breaker conditions.
 | `DeployHook` | x | | Vercel Deploy Hook Key, required for running deployments. |
 | `ApiToken` | x | | Vercel Api Token for reading Deployment Info. |
 | `TeamId` | | | ID of your Vercel Team, if applicable.
-| `HttpPolicyRetryCount` | | 3 | Number of times to retry requests after transient http failures. |
-| `CircuitBreakerPolicyCount` | | 3 | Number of times to fail before breaking, for `CircuitBreakerPolicyIntervalInSeconds`. |
-| `CircuitBreakerPolicyIntervalInSeconds` | | 60 | Seconds to break when Circuit Breaker is "open". |
+
+## `Nmbl.Deployments.OrchardCore.Vercel`
+
+Orchard Core Module connecting `Nmbl.Deployments.Vercel` and `Nmbl.Deployments.OrchardCore`. No configuration of its own.
