@@ -1,0 +1,51 @@
+﻿@model VercelDeploymentsAdminIndexViewModel
+@inject OrchardCore.IOrchardHelper orchard
+
+<h1>Vercel Deployments</h1>
+<p>
+    @if (@Model.InitializationStatus.IsDeploymentConfigured)
+    {
+        @Html.ActionLink("Deploy Now", nameof(Nmbl.Deployments.OrchardCore.Vercel.Controllers.VercelDeploymentsController.Deploy))
+    }
+    else
+    {
+        <em>Deployment is not configured.</em>
+    }
+</p>
+
+@if (@Model.Deployments?.Count() > 0) {
+    <ul class="list-group">
+        @foreach (var deployment in @Model.Deployments)
+        {
+            if (deployment.Source is Nmbl.Deployments.Vercel.Models.VercelDeployment vercelDeployment)
+            {
+                <li class="list-group-item">
+                    <div class="properties">
+                        <div class="related float-right"><a href="https://@vercelDeployment.Url">@vercelDeployment.Url</a></div>
+                        <div class="header">
+                            <div class="float-left">
+                                @{
+                                    var localTime = await orchard.ToLocalDateTimeAsync(vercelDeployment.Created);
+
+                                    <date>@localTime.ToShortDateString() @localTime.ToLongTimeString()</date>
+                                    <span> &mdash; @vercelDeployment.State.ToString()</span>
+                                    @if (!string.IsNullOrEmpty(vercelDeployment.Target)) {
+                                        <span class="hint"> &ndash; @vercelDeployment.Target</span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+}
+else if (!@Model.InitializationStatus.IsReadConfigured)
+{
+    <p><em>Reading deployments is not configured.</em></p>
+}
+else
+{
+    <p><em>No deployments found.</em></p>
+}

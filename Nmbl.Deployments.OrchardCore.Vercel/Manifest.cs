@@ -1,7 +1,7 @@
 using OrchardCore.Modules.Manifest;
 
 [assembly: Module(
-    Name = "Nmbl.Deployments.Vercel",
+    Name = "Nmbl.Deployments.OrchardCore.Vercel",
     Author = "John Rom, Nimblelight",
     Website = "https://nimblelight.com",
     Version = "0.0.1",

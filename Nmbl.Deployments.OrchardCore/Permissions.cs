@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using OrchardCore.Security.Permissions;
 
-namespace Nmbl.Deployments.OrchardCore.Vercel
+namespace Nmbl.Deployments.OrchardCore
 {
     public class Permissions : IPermissionProvider
     {
-        public static readonly Permission ManageVercelSettings = new Permission("ManageVercelSettings", "Manage Vercel Settings");
+        public static readonly Permission ManageDeploymentSettings = new Permission("ManageDeploymentSettings", "Manage Deployment Settings");
 
         public Task<IEnumerable<Permission>> GetPermissionsAsync()
         {
             return Task.FromResult(new[]
             {
-                ManageVercelSettings
+                ManageDeploymentSettings
             }
             .AsEnumerable());
         }
@@ -27,7 +25,7 @@ namespace Nmbl.Deployments.OrchardCore.Vercel
                 new PermissionStereotype
                 {
                     Name = "Administrator",
-                    Permissions = new[] { ManageVercelSettings }
+                    Permissions = new[] { ManageDeploymentSettings }
                 },
             };
         }

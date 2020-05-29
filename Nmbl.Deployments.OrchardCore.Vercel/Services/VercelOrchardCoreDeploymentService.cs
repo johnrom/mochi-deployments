@@ -17,7 +17,7 @@ namespace Nmbl.Deployments.OrchardCore.Vercel.Services
         private readonly VercelDeploymentService _vercelService;
 
         /// <summary>
-        /// Is this a *service locator*?
+        /// Is this an **anti-pattern**?
         /// </summary>
         public VercelOrchardCoreDeploymentService(
             VercelDeploymentService vercelService,

@@ -1,16 +1,21 @@
 using System;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nmbl.Deployments.Vercel.Extensions;
 using OrchardCore.Modules;
-using OrchardCore.Navigation;
-using OrchardCore.Security.Permissions;
-using Nmbl.Deployments.OrchardCore.Vercel.Filters;
-using Nmbl.Deployments.OrchardCore.Vercel.TagHelpers;
 using Nmbl.Deployments.Core.Models;
+using Nmbl.Deployments.Core.Services;
+using Nmbl.Deployments.OrchardCore.Vercel.Services;
+using Nmbl.Deployments.OrchardCore.Extensions;
+using Nmbl.Deployments.OrchardCore.Models;
+using Nmbl.Deployments.Vercel.Models;
+using Microsoft.AspNetCore.Mvc;
+using Nmbl.Deployments.OrchardCore.Vercel.TagHelpers;
+using Nmbl.Deployments.OrchardCore.Vercel.Filters;
+using OrchardCore.Security.Permissions;
+using OrchardCore.Navigation;
 
 namespace Nmbl.Deployments.OrchardCore.Vercel
 {
@@ -26,13 +31,17 @@ namespace Nmbl.Deployments.OrchardCore.Vercel
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddVercel(options => _configuration.GetSection(nameof(DeploymentOptions)).Bind(options));
-            services.AddScoped<IPermissionProvider, Permissions>();
+            services.AddVercelWithoutDefaultService(
+                options => _configuration.GetSection(nameof(VercelOptions)).Bind(options),
+                options => _configuration.GetSection(nameof(DeploymentOptions)).Bind(options)
+            );
+            services.AddOrchardDeployments(options => _configuration.GetSection(nameof(OrchardDeploymentOptions)).Bind(options));
+            services.AddScoped<IDeploymentService, VercelOrchardCoreDeploymentService>();
             services.AddScoped<INavigationProvider, AdminMenu>();
             services.AddTagHelpers<VercelLatestDeploymentTagHelper>();
             services.Configure<MvcOptions>((options) =>
             {
-                options.Filters.Add(typeof(VercelNavBarFilter));
+                options.Filters.Add(typeof(VercelDeploymentNavBarFilter));
             });
         }
 

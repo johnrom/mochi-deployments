@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
 using Nmbl.Deployments.Core.Services;
-using Nmbl.Deployments.Vercel.Models;
 using Nmbl.Deployments.OrchardCore.Vercel.ViewModels;
 
 namespace Nmbl.Deployments.OrchardCore.Vercel.TagHelpers
@@ -52,13 +51,8 @@ namespace Nmbl.Deployments.OrchardCore.Vercel.TagHelpers
             ) {
                 try
                 {
-                    var latestDeployment = await _deploymentService.GetLatestProductionDeploymentAsync();
+                    viewModel.LatestDeployment = await _deploymentService.GetLatestProductionDeploymentAsync();
                     viewModel.IsWaitingForDeployment = _deploymentStatusService.IsWaitingForDeployment();
-
-                    if (latestDeployment.Source is VercelDeployment vercelDeployment)
-                    {
-                        viewModel.LatestDeployment = vercelDeployment;
-                    }
                 }
                 catch (Exception e)
                 {

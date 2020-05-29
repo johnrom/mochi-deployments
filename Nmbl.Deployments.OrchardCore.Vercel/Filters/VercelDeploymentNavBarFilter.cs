@@ -8,18 +8,18 @@ using OrchardCore.DisplayManagement.Layout;
 using OrchardCore.Admin;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Nmbl.Deployments.OrchardCore.Filters
+namespace Nmbl.Deployments.OrchardCore.Vercel.Filters
 {
-    public class DeploymentNavBarFilter : IAsyncResultFilter
+    public class VercelDeploymentNavBarFilter : IAsyncResultFilter
     {
         private readonly ILayoutAccessor _layoutAccessor;
-        private readonly ILogger<DeploymentNavBarFilter> _logger;
+        private readonly ILogger<VercelDeploymentNavBarFilter> _logger;
         private readonly IShapeFactory _shapeFactory;
 
-        public DeploymentNavBarFilter(
+        public VercelDeploymentNavBarFilter(
             ILayoutAccessor layoutAccessor,
             IShapeFactory shapeFactory,
-            ILogger<DeploymentNavBarFilter> logger)
+            ILogger<VercelDeploymentNavBarFilter> logger)
         {
             _layoutAccessor = layoutAccessor;
             _shapeFactory = shapeFactory;

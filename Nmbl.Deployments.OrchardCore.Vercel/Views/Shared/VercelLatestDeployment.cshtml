@@ -14,8 +14,11 @@
     {
         <span>Could not find latest deployment.</span>
     }
-    else
+    else if (Model.LatestDeployment.Source is Nmbl.Deployments.Vercel.Models.VercelDeployment vercelDeployment)
     {
-        <span>@Model.LatestDeployment.State</span>
+        <span>@vercelDeployment.State</span>
+    } else
+    {
+        <span>Couldn't determine deployment state.</span>
     }
 </div>

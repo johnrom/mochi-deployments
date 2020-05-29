@@ -22,11 +22,11 @@ namespace Nmbl.Deployments.OrchardCore.Vercel
             }
 
             builder
-                .Add(T["Configuration"], configuration => configuration
-                    .Add(T["Vercel"], "10", tasks => tasks
-                        .Add(T["Deployments"], "10", navItemBuilder => navItemBuilder
-                            .Action("Index", "Vercel", new { area = "Nmbl.Deployments.OrchardCore.Vercel" })
-                            .Permission(Permissions.ManageVercelSettings)
+                .Add(T["Content"], configuration => configuration
+                    .Add(T["Deployments"], "100", tasks => tasks
+                        .Add(T["Vercel"], "10", navItemBuilder => navItemBuilder
+                            .Action("Index", "VercelDeployments", new { area = "Nmbl.Deployments.OrchardCore.Vercel" })
+                            .Permission(Permissions.ManageDeploymentSettings)
                             .LocalNav()
                         )
                     )
