@@ -19,7 +19,7 @@ Then, add some Vercel configuration to your appSettings.
 
 > Note: doesn't currently support configuration via Orchard Admin.
 
-```json
+```jsonc
 {
   "VercelOptions": {
     "TeamId": "",
