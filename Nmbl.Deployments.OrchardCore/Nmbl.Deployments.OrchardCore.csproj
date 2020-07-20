@@ -23,11 +23,11 @@
 
   <ItemGroup>
     <PackageReference Include="LazyCache.AspNetCore" Version="2.0.4" />
-    <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc1-12542" />
-    <PackageReference Include="OrchardCore.AdminMenu.Abstractions" Version="1.0.0-rc1-12542" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc1-12542" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-rc1-12542" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc1-12542" />
+    <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.AdminMenu.Abstractions" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc2-13450" />
   </ItemGroup>
 
 </Project>
