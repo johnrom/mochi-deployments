@@ -41,6 +41,7 @@ The core deployments library. Has a few options related to [Polly](https://githu
 ### `DeploymentOptions`
 
 | Setting | Required? | Default Value | Description |
+| ------- | --------- | ------------- | ----------- |
 | `HttpPolicyRetryCount` | | 3 | Number of times to retry requests after transient http failures, with exponential back-off. |
 | `CircuitBreakerPolicyCount` | | 3 | Number of times to fail before breaking, for `CircuitBreakerPolicyIntervalInSeconds`. |
 | `CircuitBreakerPolicyIntervalInSeconds` | | 60 | Seconds to break when Circuit Breaker is "open". |
