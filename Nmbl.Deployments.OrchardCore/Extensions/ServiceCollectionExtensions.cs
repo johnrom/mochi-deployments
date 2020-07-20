@@ -1,9 +1,10 @@
 using System;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Nmbl.Deployments.Core.Extensions;
 using Nmbl.Deployments.Core.Models;
+using Nmbl.Deployments.OrchardCore.ContentHandlers;
 using Nmbl.Deployments.OrchardCore.Models;
+using OrchardCore.ContentManagement.Handlers;
 using OrchardCore.Security.Permissions;
 
 namespace Nmbl.Deployments.OrchardCore.Extensions
@@ -23,6 +24,7 @@ namespace Nmbl.Deployments.OrchardCore.Extensions
 
             services.AddLazyCache();
             services.AddSingleton<DeploymentStatus>();
+            services.AddScoped<IContentHandler, DeployingContentHandler>();
             services.AddScoped<IPermissionProvider, Permissions>();
         }
     }
