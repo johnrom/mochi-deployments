@@ -4,13 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <PackageId>Nmbl.Deployments.OrchardCore</PackageId>
-    <Version>0.0.1-alpha4</Version>
+    <Version>0.0.1-alpha5</Version>
     <Authors>John Rom</Authors>
     <Company>Nimblelight</Company>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RepositoryUrl>https://github.com/nimblelight/nmbl-deployments</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -3,13 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>Nmbl.Deployments.Core</PackageId>
-    <Version>0.0.1-alpha2</Version>
+    <Version>0.0.1-alpha3</Version>
     <Authors>John Rom</Authors>
     <Company>Nimblelight</Company>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RepositoryUrl>https://github.com/nimblelight/nmbl-deployments</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
