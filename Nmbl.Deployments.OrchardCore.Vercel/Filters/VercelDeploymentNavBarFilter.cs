@@ -36,10 +36,15 @@ namespace Nmbl.Deployments.OrchardCore.Vercel.Filters
                 return;
             }
 
-            dynamic layout = await _layoutAccessor.GetLayoutAsync();
+            try {
+                dynamic layout = await _layoutAccessor.GetLayoutAsync();
 
-            layout.Zones["NavbarTop"]
-                .Add(await _shapeFactory.New.DeploymentNavBar());
+                layout.Zones["NavbarTop"].Add(
+                    await _shapeFactory.New.DeploymentNavBar()
+                );
+            } catch (Exception e) {
+                _logger.LogError(e, "Failed to add DeploymentNavBar to Header Shapes");
+            }
 
             await next();
             return;
