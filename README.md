@@ -3,7 +3,7 @@
 |        |         |
 | ------ | ------- |
 | Status | `alpha` |
-| Currently supports | `OrchardCore@1.0.0-rc1-12542` |
+| Currently supports | `OrchardCore@1.0.0-rc2-13450` |
 
 Frontend deployments for DotNet Core. Consists of a base Library, an Orchard Core library, a Vercel library, and an Orchard Core Module to connect them. Use to create new [GatsbyJS](https://www.gatsbyjs.org/) or other static site generator builds which query the CMS each time the CMS content is published.
 
@@ -69,6 +69,7 @@ Base Vercel library connecting the Core library to Vercel API endpoints.
 | `DeployHook` | x | | Vercel Deploy Hook Key, required for running deployments. |
 | `ApiToken` | x | | Vercel Api Token for reading Deployment Info. |
 | `TeamId` | | | ID of your Vercel Team, if applicable.
+| `ProductionBranch` | | `main` | Production branch of your repository
 
 ## `Nmbl.Deployments.OrchardCore.Vercel`
 

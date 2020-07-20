@@ -152,7 +152,7 @@ namespace Nmbl.Deployments.Vercel.Services
         {
             var deployments = await GetDeploymentsAsync(new Dictionary<string, string>
             {
-                { "meta-githubCommitRef", "master" }
+                { "meta-githubCommitRef", _vercelOptions.ProductionBranch }
             });
 
             return deployments.FirstOrDefault();

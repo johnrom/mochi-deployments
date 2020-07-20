@@ -10,5 +10,6 @@ namespace Nmbl.Deployments.Vercel.Models
         public string TeamId { get; set; }
         public string DeployHook { get; set; }
         public string ApiToken { get; set; }
+        public string ProductionBranch { get; set; } = "main";
     }
 }
