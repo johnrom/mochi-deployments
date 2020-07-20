@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>Nmbl.Deployments.Vercel</PackageId>
-    <Version>0.0.1-alpha1</Version>
+    <Version>0.0.1-alpha2</Version>
     <Authors>John Rom</Authors>
     <Company>Nimblelight</Company>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
