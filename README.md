@@ -5,7 +5,7 @@
 | Status | `alpha` |
 | Currently supports | `OrchardCore@1.0.0-rc2-13450` |
 
-Frontend deployments for DotNet Core. Consists of a base Library, an Orchard Core library, a Vercel library, and an Orchard Core Module to connect them. Use to create new [GatsbyJS](https://www.gatsbyjs.org/) or other static site generator builds which query the CMS each time the CMS content is published.
+Frontend / Serverless deployments for DotNet Core. Consists of a base Library, an Orchard Core library, a Vercel library, and an Orchard Core Module to connect them. Use to create new [GatsbyJS](https://www.gatsbyjs.org/), [NextJS](https://nextjs.org/) or other static site generator builds which query the CMS each time the CMS content is published.
 
 ### Getting Started with OrchardCore and Vercel Front-end Deployments
 
